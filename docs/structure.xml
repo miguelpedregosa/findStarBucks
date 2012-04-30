@@ -1,0 +1,816 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a2" title="">
+  <file path="classes/StarBucks_test.php" hash="f9ebf8236808b91cc67a81ac8dc1fa65" package="StarBucks">
+    <docblock line="2">
+      <description><![CDATA[Almacena varias pruebas sobre la clase StarBucks y StarBucksCollection.]]></description>
+      <long-description><![CDATA[<p>Fichero que almacena varias pruebas sobre la clase StarBucks y StarBucksCollection para testear sus funcionalidades</p>]]></long-description>
+      <tag line="2" name="author" description="Miguel A. Pedregosa &lt;miguelpedregosa@gmail.com&gt;"/>
+      <tag line="2" name="since" description="1.0"/>
+      <tag line="2" name="package" description="StarBucks"/>
+    </docblock>
+    <include line="12" type="Require Once" package="StarBucks">
+      <name>StarBucks.php</name>
+      <docblock line="2">
+        <description><![CDATA[Almacena varias pruebas sobre la clase StarBucks y StarBucksCollection.]]></description>
+        <long-description><![CDATA[<p>Fichero que almacena varias pruebas sobre la clase StarBucks y StarBucksCollection para testear sus funcionalidades</p>]]></long-description>
+        <tag line="2" name="author" description="Miguel A. Pedregosa &lt;miguelpedregosa@gmail.com&gt;"/>
+        <tag line="2" name="since" description="1.0"/>
+        <tag line="2" name="package" description="StarBucks"/>
+      </docblock>
+    </include>
+  </file>
+  <file path="classes/StarBucksCollection.php" hash="5844cc3676645623c768108c99217690" package="StarBucks">
+    <docblock line="2">
+      <description><![CDATA[Almacena la clase StarBucksCollection.]]></description>
+      <long-description><![CDATA[<p>Fichero que almacena la clase StarBucksCollection.</p>]]></long-description>
+      <tag line="2" name="author" description="Miguel A. Pedregosa &lt;miguelpedregosa@gmail.com&gt;"/>
+      <tag line="2" name="since" description="1.0"/>
+      <tag line="2" name="package" description="StarBucks"/>
+    </docblock>
+    <include line="12" type="Require Once" package="StarBucks">
+      <name>StarBucks.php</name>
+      <docblock line="2">
+        <description><![CDATA[Almacena la clase StarBucksCollection.]]></description>
+        <long-description><![CDATA[<p>Fichero que almacena la clase StarBucksCollection.</p>]]></long-description>
+        <tag line="2" name="author" description="Miguel A. Pedregosa &lt;miguelpedregosa@gmail.com&gt;"/>
+        <tag line="2" name="since" description="1.0"/>
+        <tag line="2" name="package" description="StarBucks"/>
+      </docblock>
+    </include>
+    <class final="false" abstract="false" namespace="default" line="25" package="StarBucks">
+      <name>StarBucksCollection</name>
+      <full_name>\StarBucksCollection</full_name>
+      <extends/>
+      <implements>\Iterator</implements>
+      <docblock line="14">
+        <description><![CDATA[Clase para gestionar colecciones de objetos de tipo StarBucks]]></description>
+        <long-description><![CDATA[<p>Esta clase nos permite almacenar e iterar sobre colecciones de objetos de tipo StarBucks. Se usa normalmente para devolver conjuntos
+de resultados de la Base de Datos de forma que se pueda iterar sobre ellos fácilmente.
+Implementa la interfaz Iterator de PHP</p>]]></long-description>
+        <tag line="14" name="author" description="Miguel A. Pedregosa &lt;miguelpedregosa@gmail.com&gt;"/>
+        <tag line="14" name="since" description="1.0"/>
+        <tag line="14" name="package" description="StarBucks"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="30" package="Default">
+        <name>$items</name>
+        <default><![CDATA[array()]]></default>
+        <docblock line="27">
+          <description><![CDATA[Almacena los objetos de la colección StarBucksCollection]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="35" package="Default">
+        <name>$position</name>
+        <default><![CDATA[0]]></default>
+        <docblock line="32">
+          <description><![CDATA[Almacena la positición actual sobre la estamos iterando la colección de objetos]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="43" package="">
+        <name>__construct</name>
+        <type>function</type>
+        <docblock line="37">
+          <description><![CDATA[Crea un nuevo objeto de tipo StarBucksCollection]]></description>
+          <long-description><![CDATA[<p>Constructor de la clase, crea un nuevo objeto de la clase StarBucksCollection para almacenar un conjunto de resultado</p>]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="55" package="">
+        <name>current</name>
+        <type>function</type>
+        <docblock line="48">
+          <description><![CDATA[Devuelve el elemento actual en una iteración sobre la colección]]></description>
+          <long-description><![CDATA[<p>Función del iterador que devuelve el elemento (de clase StarBucks) sobre el que nos encontramos iterando actualmente.</p>]]></long-description>
+          <tag line="48" name="return" description="Objeto actual sobre el que estamos iterando" type="\StarBucks">
+            <type by_reference="false">\StarBucks</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="69" package="">
+        <name>key</name>
+        <type>function</type>
+        <docblock line="62">
+          <description><![CDATA[Devuelve la posición del elemento actual sobre el que estamos iterando.]]></description>
+          <long-description><![CDATA[<p>Función del iterador que devuelve la clave o posición del elemento actual de la colección sobre el que estamos iterando.</p>]]></long-description>
+          <tag line="62" name="return" description="Posición del elemento actual de la colección." type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="79" package="">
+        <name>next</name>
+        <type>function</type>
+        <docblock line="74">
+          <description><![CDATA[Avanza el contardor que indica la posición actual de la iteración sobre la colección de objetos]]></description>
+          <long-description><![CDATA[<p>Función del iterador que aumenta la posición en la que nos encontramos sobre la colección de objetos.</p>]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="89" package="">
+        <name>rewind</name>
+        <type>function</type>
+        <docblock line="84">
+          <description><![CDATA[Mueve el inidicador de la posición actual al inicio de la colección]]></description>
+          <long-description><![CDATA[<p>Función del iterador que mueve el indicador de posición actual al primer elemento de la colección de objetos.</p>]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="102" package="">
+        <name>valid</name>
+        <type>function</type>
+        <docblock line="94">
+          <description><![CDATA[Indica si el elemento actual de la iteración es un objeto establecido en la colección]]></description>
+          <long-description><![CDATA[<p>Función del iterador que indica si la posición actual sobre la que estamos iterando se corresponde con un objeto almacenado en la colección o ya nos hemos salido del
+rango de objetos disponibles en la colección.</p>]]></long-description>
+          <tag line="94" name="return" description="True si la posición actual corresponde a un objeto de la colección, False en caso contrario" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="114" package="">
+        <name>push</name>
+        <type>function</type>
+        <docblock line="107">
+          <description><![CDATA[Almacena un objeto de tipo StarBucks en la colección de objetos]]></description>
+          <long-description><![CDATA[<p>Introduce un nuevo objeto en la colección, añadiendo el objeto al final de la misma.</p>]]></long-description>
+          <tag line="107" name="param" description="Objeto a introducir en la colección" type="mixed" variable="$item">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="114">
+          <name>$item</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="138" package="">
+        <name>add</name>
+        <type>function</type>
+        <docblock line="131">
+          <description><![CDATA[Almacena un objeto de tipo StarBucks en la colección de objetos (alias para la función push)]]></description>
+          <long-description><![CDATA[<p>Introduce un nuevo objeto en la colección, añadiendo el objeto al final de la misma.</p>]]></long-description>
+          <tag line="131" name="param" description="Objeto a introducir en la colección" type="mixed" variable="$item">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="138">
+          <name>$item</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="150" package="">
+        <name>pop</name>
+        <type>function</type>
+        <docblock line="143">
+          <description><![CDATA[Extrae el último elemento introducido en la colección de objetos]]></description>
+          <long-description><![CDATA[<p>Devuelve el último elemento de la colección y lo extrae de la misma (funciona como una pila)</p>]]></long-description>
+          <tag line="143" name="return" description="Último objeto introducido en la colección" type="\StarBucks">
+            <type by_reference="false">\StarBucks</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="165" package="">
+        <name>first</name>
+        <type>function</type>
+        <docblock line="158">
+          <description><![CDATA[Devuelve el primer elemento introducido en la colección de objetos]]></description>
+          <long-description><![CDATA[<p>Devuelve el primer elemento de la colección, no se modifica la colección de objetos</p>]]></long-description>
+          <tag line="158" name="return" description="Primer objeto introducido en la colección" type="\StarBucks">
+            <type by_reference="false">\StarBucks</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="180" package="">
+        <name>last</name>
+        <type>function</type>
+        <docblock line="173">
+          <description><![CDATA[Devuelve el último elemento introducido en la colección de objetos]]></description>
+          <long-description><![CDATA[<p>Devuelve el último elemento de la colección, no se modifica la colección de objetos</p>]]></long-description>
+          <tag line="173" name="return" description="Último objeto introducido en la colección" type="\StarBucks">
+            <type by_reference="false">\StarBucks</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="196" package="">
+        <name>get</name>
+        <type>function</type>
+        <docblock line="188">
+          <description><![CDATA[Devuelve el objeto que se encuentra en la posición que se le indica]]></description>
+          <long-description><![CDATA[<p>Devuelve el objeto StarBucks que se encuentra en la posición que se le pasa como parametro, si existe dicho objeto.</p>]]></long-description>
+          <tag line="188" name="param" description="Posición del objeto que queremos obtener" type="int" variable="$position">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="188" name="return" description="Objeto que se encuentra en la posición solicitada. False en caso de que no se le haya pasado una posición válida." type="\StarBucks">
+            <type by_reference="false">\StarBucks</type>
+          </tag>
+        </docblock>
+        <argument line="196">
+          <name>$position</name>
+          <default><![CDATA[0]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="218" package="">
+        <name>count</name>
+        <type>function</type>
+        <docblock line="211">
+          <description><![CDATA[Devuelve el número de elementos que tiene la colección de objetos]]></description>
+          <long-description><![CDATA[<p>Devuelve el número de objetos de tipo StarBucks que tenemos almacenados en la colección actualmente.</p>]]></long-description>
+          <tag line="211" name="return" description="Número de elementos de la colección" type="int">
+            <type by_reference="false">int</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+  </file>
+  <file path="classes/StarBucks.php" hash="66b5a1088c17e47286530df8f62eb334" package="StarBucks">
+    <docblock line="2">
+      <description><![CDATA[Almacena la clase StarBucks.]]></description>
+      <long-description><![CDATA[<p>Fichero que almacena la clase StarBucks.</p>]]></long-description>
+      <tag line="2" name="author" description="Miguel A. Pedregosa &lt;miguelpedregosa@gmail.com&gt;"/>
+      <tag line="2" name="since" description="1.0"/>
+      <tag line="2" name="package" description="StarBucks"/>
+    </docblock>
+    <include line="12" type="Require Once" package="StarBucks">
+      <name>../settings.php</name>
+      <docblock line="2">
+        <description><![CDATA[Almacena la clase StarBucks.]]></description>
+        <long-description><![CDATA[<p>Fichero que almacena la clase StarBucks.</p>]]></long-description>
+        <tag line="2" name="author" description="Miguel A. Pedregosa &lt;miguelpedregosa@gmail.com&gt;"/>
+        <tag line="2" name="since" description="1.0"/>
+        <tag line="2" name="package" description="StarBucks"/>
+      </docblock>
+    </include>
+    <include line="13" type="Require Once" package="Default">
+      <name>StarBucksCollection.php</name>
+    </include>
+    <class final="false" abstract="false" namespace="default" line="31" package="StarBucks">
+      <name>StarBucks</name>
+      <full_name>\StarBucks</full_name>
+      <extends/>
+      <docblock line="15">
+        <description><![CDATA[Clase para gestionar y almacenar en BD información sobre cafeterías StarBucks]]></description>
+        <long-description><![CDATA[<p>De cada cafetería StarBucks almacenamos información como su nombre, su dirección y sus coordenadas (longitud, latitud).
+Esta clase permite gestionar, almacenar y recuperar información de una cafetería en concreto o colecciones de ellas
+mediante la clase auxiliar iterable StarBucksCollection.
+Mediante la implementación de técnicas de metaprogramación existen varias funciones que se crean "al vuelo".
+Por ejemplo, hay una función llamada find_by_campo() donde "campo" puede ser cualquier cosa. Así la función
+find_by_local_name('Plenilucio') nos devuelve los datos de la cafetería cuyo campo local_name en la base de datos
+es 'Plenilucio' sin que hayamos definido explícitamente la función "find_by_local_name".
+En el archivo StarBucks_test.php hay pruebas y ejemplos de los métodos de la clase.</p>]]></long-description>
+        <tag line="15" name="author" description="Miguel A. Pedregosa &lt;miguelpedregosa@gmail.com&gt;"/>
+        <tag line="15" name="since" description="1.0"/>
+        <tag line="15" name="package" description="StarBucks"/>
+      </docblock>
+      <property final="false" static="false" visibility="private" line="36" package="Default">
+        <name>$db_connection</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="33">
+          <description><![CDATA[Almacena el enlace de conexión con la base de datos MySQL]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="41" package="Default">
+        <name>$id</name>
+        <default><![CDATA[null]]></default>
+        <docblock line="38">
+          <description><![CDATA[Almacena la ID en base de datos del objeto]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="46" package="Default">
+        <name>$local_id</name>
+        <default><![CDATA[]]></default>
+        <docblock line="43">
+          <description><![CDATA[Almacena el identificador del local en concreto (información proporcionada por la empresa StarBucks)]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="51" package="Default">
+        <name>$local_name</name>
+        <default><![CDATA[]]></default>
+        <docblock line="48">
+          <description><![CDATA[Almacena el nombre del local o cafetería]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="56" package="Default">
+        <name>$local_address</name>
+        <default><![CDATA[]]></default>
+        <docblock line="53">
+          <description><![CDATA[Almacena la dirección del local o cafetería]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="61" package="Default">
+        <name>$local_latitude</name>
+        <default><![CDATA[]]></default>
+        <docblock line="58">
+          <description><![CDATA[Almacena la latitud (coordenadas decimales) del local o cafetería]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="66" package="Default">
+        <name>$local_longitude</name>
+        <default><![CDATA[]]></default>
+        <docblock line="63">
+          <description><![CDATA[Almacena la longitud (coordenadas decimales) del local o cafetería]]></description>
+          <long-description><![CDATA[]]></long-description>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="default" line="78" package="">
+        <name>setter</name>
+        <type>function</type>
+        <docblock line="68">
+          <description><![CDATA[Establece las propiedades un objeto de la clase StarBucks]]></description>
+          <long-description><![CDATA[<p>Esta función privada establece las propiedades de una instancia de la clase StarBucks (a excepción de la propiedad id que controla si es objeto se ha
+almacenado de forma permanente en la base de datos). Para cada propiedad realiza la conversión de datos correspondiente asegurando que los datos se
+almacenen con el tipo adecuado según su naturaleza.</p>]]></long-description>
+          <tag line="68" name="param" description="Array asociativo o diccionario con los valores de cada propiedad del objeto. No tienen porqué estar todos" type="array" variable="$hash">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="68" name="return" description="" type="void">
+            <type by_reference="false">void</type>
+          </tag>
+        </docblock>
+        <argument line="78">
+          <name>$hash</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="default" line="113" package="">
+        <name>make_db_connection</name>
+        <type>function</type>
+        <docblock line="106">
+          <description><![CDATA[Realiza una conexión con la base de datos del proyecto]]></description>
+          <long-description><![CDATA[<p>Función privada que establece (o trata de ello) una conexión con la base de datos del proyecto. Usa la extensión de php mysqli en lugar de la
+extensión mysql normal si está disponible. En caso de estar mysqli disponible usará la extensión mysql normal</p>]]></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="default" line="149" package="">
+        <name>make_db_query</name>
+        <type>function</type>
+        <docblock line="140">
+          <description><![CDATA[Realiza una consulta a la base de datos proyecto]]></description>
+          <long-description><![CDATA[<p>Función privada que realiza una consulta a base de datos del proyectos. Dichas consultas se usarán tanto para insertar datos (hacer permanente el objeto)
+como para recoger información de la base de datos. Trata de usar la extensión mysqli si está disponble en el sistema.</p>]]></long-description>
+          <tag line="140" name="param" description="Cadena de texto con la consulta a ejecutar." type="string" variable="$sql">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="140" name="return" description="Devuelve un objeto resultado de la libreria de mysqli o mysql" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="149">
+          <name>$sql</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="default" line="181" package="">
+        <name>static_make_db_query</name>
+        <type>function</type>
+        <docblock line="172">
+          <description><![CDATA[Realiza una consulta a la base de datos (para funciones estáticas de la clase)]]></description>
+          <long-description><![CDATA[<p>Función que realiza una consulta a la base de datos, para ser usada en las funciones estáticas de la clase al no requerir ninguna información
+de la instancia actual del objecto StarBucks</p>]]></long-description>
+          <tag line="172" name="param" description="Cadena de texto con la consulta a ejecutar." type="string" variable="$sql">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="172" name="return" description="Devuelve un objeto resultado de la libreria de mysqli o mysql" type="mixed">
+            <type by_reference="false">mixed</type>
+          </tag>
+        </docblock>
+        <argument line="181">
+          <name>$sql</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="default" line="221" package="">
+        <name>get_mysql_error</name>
+        <type>function</type>
+        <docblock line="214">
+          <description><![CDATA[Devuelve el último mensaje de error devuelto por MySQL]]></description>
+          <long-description><![CDATA[<p>Función privada que devuelve el último mensaje de error enviado por el servidor de MySQL a PHP</p>]]></long-description>
+          <tag line="214" name="return" description="Cadena con el último mensaje de error de MySQL" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="default" line="241" package="">
+        <name>escape_string</name>
+        <type>function</type>
+        <docblock line="233">
+          <description><![CDATA[Escapa los caracteres de una cadena para que no puedan causar daños en una consulta SQL]]></description>
+          <long-description><![CDATA[<p>Función privada encargada de escapar los caracteres especiales de una cadena de texto para que no resulten dañinos en una consulta SQL</p>]]></long-description>
+          <tag line="233" name="param" description="Cadena de texto a escapar" type="string" variable="$string">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="233" name="return" description="Cadena de texto con los caracteres escapados" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="241">
+          <name>$string</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="269" package="">
+        <name>__call</name>
+        <type>function</type>
+        <docblock line="253">
+          <description><![CDATA[Implementa las funciones de metaprogramación para la clase StarBucks]]></description>
+          <long-description><![CDATA[<p>Función mágica de PHP que se utiliza para dotar de metaprogramación a la clase StarBucks.
+Podemos ejecutar métodos que no se han declarados explícitamente (esta función se llama cuando no se encuentra un método declarado en la clase).
+y cuyos nombres coincidan con patrones establecidos por nosotros. Estas funciones serán de tres tipos set/get para las propiedades de la clase, find_by_algo y
+all_by_algo. El primer tipo nos permitirá tener funciones de tipo propiedad() y propiedad($valor) para leer y establecer los valores del campo "propiedad".</p>
+
+<p>Ejemplo: $obj->local_name() devuelve el valor del campo local_name del objeto $obj Tratar de acceder directamente no funciona (son propiedades privadas)</p>
+
+<p>El segundo tipo se usa para recuperar información de un objeto de la BD atendiendo a un campo
+El tercer tipo se usa para recuperar varios objetos de tipo StarBucks atendiendo al valor de un campo</p>]]></long-description>
+          <tag line="253" name="param" description="Nombre de la función que ha sido llamada" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="253" name="param" description="Argumentos que se le ha pasado a la función llamada" type="array" variable="$args">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="269">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="269">
+          <name>$args</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="default" line="309" package="">
+        <name>__callStatic</name>
+        <type>function</type>
+        <docblock line="301">
+          <description><![CDATA[Implementa las funciones de metaprogramación (en funciones estáticas) para la clase StarBucks]]></description>
+          <long-description><![CDATA[<p>Función analoga a la anterior para dotar de metaprogamación en funciones estáticas. No funciona en versiones anteriores a PHP 5.3</p>]]></long-description>
+          <tag line="301" name="param" description="Nombre de la función que ha sido llamada" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="301" name="param" description="Argumentos que se le ha pasado a la función llamada" type="array" variable="$args">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="309">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="309">
+          <name>$args</name>
+          <default><![CDATA[]]></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="348" package="">
+        <name>__toString</name>
+        <type>function</type>
+        <docblock line="340">
+          <description><![CDATA[Obtiene una representación en texto de un objeto de tipo StarBucks]]></description>
+          <long-description><![CDATA[<p>Devuelve una cadena con los campos del objeto de tipo StarBucks para que puedan ser mostrados por pantalla.</p>]]></long-description>
+          <tag line="340" name="return" description="Cadena con todos los datos de la instancia del objeto StarBucks" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="361" package="">
+        <name>__construct</name>
+        <type>function</type>
+        <docblock line="353">
+          <description><![CDATA[Constructor de la clase StarBucks]]></description>
+          <long-description><![CDATA[<p>Crear una instancia de la clase StarBucks con los datos que se le pasan como parámetro (no obligatorios)</p>]]></long-description>
+          <tag line="353" name="param" description="Datos para crear la instancia del objeto StarBucks" type="array" variable="$hash">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="361">
+          <name>$hash</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="377" package="">
+        <name>create</name>
+        <type>function</type>
+        <docblock line="366">
+          <description><![CDATA[Crea y almacena en la base de datos el objeto de la clase StarBucks]]></description>
+          <long-description><![CDATA[<p>Este método crea un nuevo registro en la base de datos con los datos del objeto StarBucks. Si se le pasan estos datos como parámetro se cambian en las
+propiedades del objeto antes de ser creado en la BD. Si la instancia del objeto ya había sido guardada en BD anteriormente llama al método que permite actualizar el
+el objeto en la base de datos. Si no se puede crear el objeto en BD devuelve una excepción.</p>]]></long-description>
+          <tag line="366" name="param" description="Datos para crear la instancia del objeto StarBucks" type="array" variable="$hash">
+            <type by_reference="false">array</type>
+          </tag>
+          <tag line="366" name="return" description="True si se almacena el objeto en BD y False en caso contrario" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="377">
+          <name>$hash</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="427" package="">
+        <name>save</name>
+        <type>function</type>
+        <docblock line="419">
+          <description><![CDATA[Actualiza el objeto en BD correspondiente a la instancia del objeto StarBucks en memoria]]></description>
+          <long-description><![CDATA[<p>Función que actualiza el objeto en memoria correspondiente a la instancia del objeto en memoria. Si el objeto no se ha creado antes en la BD llamará a la
+función create para aseguar su correcta creación en la base de datos. Si no se puede guardar el objeto en BD devuelve una excepción.</p>]]></long-description>
+          <tag line="419" name="return" description="True si se almacena el objeto en BD y False en caso contrario" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="default" line="469" package="">
+        <name>find_by</name>
+        <type>function</type>
+        <docblock line="458">
+          <description><![CDATA[Lee la información de un StarBucks desde la base de datos y lo carga en la instancia del objeto en memoria.]]></description>
+          <long-description><![CDATA[<p>Busca en la base de datos la información del establecimiento cuyo nombre de campo establecido por $name coincide con el valor proporcionado en $value
+La información recuperada de la base de datos es cargada en la instancia actual del objeto en memoria.
+Devuelve una excepción si no encuentra el objeto a buscar.</p>]]></long-description>
+          <tag line="458" name="param" description="Nombre del campo por el que se va a buscar el objeto en la base de datos" type="string" variable="$name">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="458" name="param" description="Valor del campo que queremos que coincida para encontrar a nuestro objeto" type="string" variable="$value">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="458" name="return" description="True si el registro se encuentra en la BD y false en caso contrario" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="469">
+          <name>$name</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="469">
+          <name>$value</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="503" package="">
+        <name>find</name>
+        <type>function</type>
+        <docblock line="495">
+          <description><![CDATA[Lee la información de un objeto StarBucks desde la base de datos y lo carga en memoria. Busca por la id del resgristro en la tabla]]></description>
+          <long-description><![CDATA[<p>Busca en la base de datos el registro en la tabla cuya id coincida con el valor pasado como parámetro y lo carga en la instancia del objeto en memoria.</p>]]></long-description>
+          <tag line="495" name="param" description="ID del objeto en la tabla de la base de datos" type="int" variable="$id">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="495" name="return" description="True si el registro se encuentra en la BD y false en caso contrario" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+        <argument line="503">
+          <name>$id</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="518" package="">
+        <name>delete</name>
+        <type>function</type>
+        <docblock line="509">
+          <description><![CDATA[Borra un objeto de la base de datos y sus propiedades de la instancia en memoria.]]></description>
+          <long-description><![CDATA[<p>Borra el resgistro de la tabla en la base de datos, correspondiente al objeto de la instancia actual de la clase StarBucks
+Si el objeto no había sido almacenado en la base de datos solo resetea sus propiedades.
+Devuelve una excepción si el objeto no se puede borrar correctamente</p>]]></long-description>
+          <tag line="509" name="return" description="True si el registro se borra correctamente y false en caso contrario" type="boolean">
+            <type by_reference="false">boolean</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="default" line="564" package="">
+        <name>end_select_query</name>
+        <type>function</type>
+        <docblock line="553">
+          <description><![CDATA[Crea la segunda parte de una consulta SELECT a la base de datos]]></description>
+          <long-description><![CDATA[<p>Crea la segunda parte de una consulta SELECT añadiendo la información sobre el límite de resultados a devolver
+y el orden en que deben hacerse.</p>]]></long-description>
+          <tag line="553" name="param" description="Número de resultados a devolver" type="string" variable="$limit">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="553" name="param" description="Campo que se usará para ordenar los resultados a mostrar" type="string" variable="$order">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="553" name="param" description="Modificador del orden usado, puede ser ARC o DESC" type="string" variable="$order_mod">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="553" name="return" description="Parte de la consulta SQL con los parametros colocados correctamente" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="564">
+          <name>$limit</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="564">
+          <name>$order</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="564">
+          <name>$order_mod</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="default" line="607" package="">
+        <name>all</name>
+        <type>function</type>
+        <docblock line="594">
+          <description><![CDATA[Devuelve todos los objetos de clase StarBucks disponibles en la base de datos]]></description>
+          <long-description><![CDATA[<p>Esta función devuelve una colección de objetos de tipo StarBucks, un objeto StarBucksCollection con todos los registros de la tabla en la base de datos.
+Es una función estática de la clase, no puede usarse con una instancia en concreto sino de la forma StarBucks::all() Admite modificadores como el límite de
+resultados a devolver y el orden de los mismos.</p>]]></long-description>
+          <tag line="594" name="param" description="Número de resultados a devolver" type="string" variable="$limit">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="594" name="param" description="Campo que se usará para ordenar los resultados a mostrar" type="string" variable="$order">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="594" name="param" description="Modificador del orden usado, puede ser ARC o DESC" type="string" variable="$order_mod">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="594" name="return" description="Colección de objetos de tipo StarBucks con todos los objetos de la tabla en la BD" type="\StarBucksCollection">
+            <type by_reference="false">\StarBucksCollection</type>
+          </tag>
+        </docblock>
+        <argument line="607">
+          <name>$limit</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="607">
+          <name>$order</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="607">
+          <name>$order_mod</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="default" line="655" package="">
+        <name>where</name>
+        <type>function</type>
+        <docblock line="641">
+          <description><![CDATA[Devuelve todos los objetos de clase StarBucks disponibles en la base de datos que cumplan las condiciones]]></description>
+          <long-description><![CDATA[<p>Esta función devuelve una colección de objetos de tipo StarBucks, un objeto StarBucksCollection con los registros de la tabla en la base de datos que
+concidan con las restricciones impuestas en el parametro $where
+Es una función estática de la clase, no puede usarse con una instancia en concreto sino de la forma StarBucks::all() Admite modificadores como el límite de
+resultados a devolver y el orden de los mismos.</p>]]></long-description>
+          <tag line="641" name="param" description="Modificador para buscar los objetos que nos interesen" type="string" variable="$where">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="641" name="param" description="Número de resultados a devolver" type="string" variable="$limit">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="641" name="param" description="Campo que se usará para ordenar los resultados a mostrar" type="string" variable="$order">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="641" name="param" description="Modificador del orden usado, puede ser ARC o DESC" type="string" variable="$order_mod">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="641" name="return" description="Colección de objetos de tipo StarBucks con todos los objetos de la tabla en la BD" type="\StarBucksCollection">
+            <type by_reference="false">\StarBucksCollection</type>
+          </tag>
+        </docblock>
+        <argument line="655">
+          <name>$where</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="655">
+          <name>$limit</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="655">
+          <name>$order</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="655">
+          <name>$order_mod</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="private" namespace="default" line="706" package="">
+        <name>all_by</name>
+        <type>function</type>
+        <docblock line="691">
+          <description><![CDATA[Devuelve todos los objetos de clase StarBucks disponibles en la base de datos que cumplan las condiciones]]></description>
+          <long-description><![CDATA[<p>Esta función devuelve una colección de objetos de tipo StarBucks, un objeto StarBucksCollection con los registros de la tabla en la base de datos cuyo campo
+$campo sea igual $valor
+Es una función estática de la clase, no puede usarse con una instancia en concreto sino de la forma StarBucks::all() Admite modificadores como el límite de
+resultados a devolver y el orden de los mismos.</p>]]></long-description>
+          <tag line="691" name="param" description="Modificador para buscar los objetos que nos interesen" type="string" variable="$campo">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="691" name="param" description="Valor para el campo por el que queremos buscar los objetos que nos interesen" type="string" variable="$valor">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="691" name="param" description="Número de resultados a devolver" type="string" variable="$limit">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="691" name="param" description="Campo que se usará para ordenar los resultados a mostrar" type="string" variable="$order">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="691" name="param" description="Modificador del orden usado, puede ser ARC o DESC" type="string" variable="$order_mod">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="691" name="return" description="Colección de objetos de tipo StarBucks con todos los objetos de la tabla en la BD" type="\StarBucksCollection">
+            <type by_reference="false">\StarBucksCollection</type>
+          </tag>
+        </docblock>
+        <argument line="706">
+          <name>$campo</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="706">
+          <name>$valor</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="706">
+          <name>$limit</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="706">
+          <name>$order</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+        <argument line="706">
+          <name>$order_mod</name>
+          <default><![CDATA[null]]></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="default" line="723" package="">
+        <name>distancia_haversin</name>
+        <type>function</type>
+        <docblock line="712">
+          <description><![CDATA[Calcula la distancia (formula de Haversin) entre el local StarBucks y las coordenadas proporcionadas]]></description>
+          <long-description><![CDATA[<p>Calcula la distancia en metros entre el local almacenado en la instancia del objeto StarBucks y las coordenadas que se pasan como parámetro a la función</p>]]></long-description>
+          <tag line="712" name="param" description="Latitud del punto con el que queremos calcular la distancia" type="double" variable="$lat2">
+            <type by_reference="false">double</type>
+          </tag>
+          <tag line="712" name="param" description="Longitud del punto con el que queremos calcular la distancia" type="double" variable="$long2">
+            <type by_reference="false">double</type>
+          </tag>
+          <tag line="712" name="return" description="Distancia entre el local StarBucks y las coordenadas proporcionadas" type="double">
+            <type by_reference="false">double</type>
+          </tag>
+        </docblock>
+        <argument line="723">
+          <name>$lat2</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+        <argument line="723">
+          <name>$long2</name>
+          <default><![CDATA[]]></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+  </file>
+  <file path="settings.php" hash="41b0f820c408d01b7b9cfb3216cd8274" package="StarBucks">
+    <docblock line="2">
+      <description><![CDATA[Almacena la información necesaria para establecer la conexión con la base de datos del proyecto.]]></description>
+      <long-description><![CDATA[<p>Fichero que almacena la información necesaria para estrablecer la conexión con la base de datos. Actualmente solo hay una tabla que se puede crear
+haciendo uso del fichero starbucks.sql</p>]]></long-description>
+      <tag line="2" name="author" description="Miguel A. Pedregosa &lt;miguelpedregosa@gmail.com&gt;"/>
+      <tag line="2" name="since" description="1.0"/>
+      <tag line="2" name="package" description="StarBucks"/>
+    </docblock>
+  </file>
+  <package name="" full_name=""/>
+  <package name="Default" full_name="Default"/>
+  <package name="StarBucks" full_name="StarBucks"/>
+  <namespace name="default" full_name="default"/>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>
