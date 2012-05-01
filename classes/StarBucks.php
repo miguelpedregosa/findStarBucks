@@ -65,6 +65,11 @@ class StarBucks
     */
 	private $local_longitude;
 
+	/**
+    * Almacena el país del local o cafetería
+    */
+	private $local_country;
+
 /**
 * Establece las propiedades un objeto de la clase StarBucks
 *
@@ -100,6 +105,10 @@ class StarBucks
 		if(array_key_exists('local_longitude', $hash))
 		{
 			$this->local_longitude = (double) $hash['local_longitude'];
+		}
+		if(array_key_exists('local_country', $hash))
+		{
+			$this->local_country = (string) $hash['local_country'];
 		}
 	}
 
@@ -347,7 +356,7 @@ class StarBucks
 
 	public function __toString()
 	{
-		return $this->local_name()." (".(string) $this->local_id().") \n".$this->local_address()." (".(string) $this->local_latitude.", ".(string) $this->local_longitude().")\n";
+		return $this->local_name()." (".(string) $this->local_id().") \n".$this->local_address()." [".(string) $this->local_country()."] (".(string) $this->local_latitude().", ".(string) $this->local_longitude().")\n";
 	}
 
 /**
@@ -386,10 +395,11 @@ class StarBucks
 		
 		//Ahora tengo que guardar en la base de datos
 		//Preparo la consulta y la ejecuto, aprovecho los métodos creados dinámicamente para obtener los valos de cada atributo.
-		$sql = "INSERT INTO `starbucks` ( `local_id`, `local_name`, `local_address`, `local_latitude`, `local_longitude`) VALUES (";
+		$sql = "INSERT INTO `starbucks` ( `local_id`, `local_name`, `local_address`, `local_country`, `local_latitude`, `local_longitude`) VALUES (";
 		$sql .= "".$this->local_id().", ";
 		$sql .= "'".$this->escape_string($this->local_name())."', ";
 		$sql .= "'".$this->escape_string($this->local_address())."', ";
+		$sql .= "'".$this->escape_string($this->local_country())."', ";
 		$sql .= "".$this->local_latitude().", ";
 		$sql .= "".$this->local_longitude()."";
 		$sql .= ");";
@@ -436,6 +446,7 @@ class StarBucks
 		$sql .= "`local_id` = ".$this->local_id().", ";
 		$sql .= "`local_name` = '".$this->escape_string($this->local_name())."', ";
 		$sql .= "`local_address` = '".$this->escape_string($this->local_address())."', ";
+		$sql .= "`local_country` = '".$this->escape_string($this->local_country())."', ";
 		$sql .= "`local_latitude` = ".$this->local_latitude().", ";
 		$sql .= "`local_longitude` = ".$this->local_longitude()." ";
 		$sql .= "WHERE `id` = ".$this->id().";";
@@ -526,6 +537,7 @@ class StarBucks
 			$this->local_address = null;
 			$this->local_latitude = null;
 			$this->local_longitude = null;
+			$this->local_country = null;
 			return true;
 		}
 		//Construyo la SQL y la ejecuto contra la DB
@@ -545,6 +557,7 @@ class StarBucks
 			$this->local_address = null;
 			$this->local_latitude = null;
 			$this->local_longitude = null;
+			$this->local_country = null;
 			return true;
 		}
 
