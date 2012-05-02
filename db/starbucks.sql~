@@ -31,6 +31,7 @@ CREATE TABLE IF NOT EXISTS `starbucks` (
   `local_id` int(11) NOT NULL,
   `local_name` varchar(255) NOT NULL,
   `local_address` text NOT NULL,
+  `local_country` text NOT NULL,
   `local_latitude` double NOT NULL,
   `local_longitude` double NOT NULL,
   PRIMARY KEY (`id`)

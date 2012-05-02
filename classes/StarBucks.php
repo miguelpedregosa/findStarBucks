@@ -70,6 +70,12 @@ class StarBucks
     */
 	private $local_country;
 
+
+	/**
+    * Almacena la ciudad del local o cafetería
+    */
+	private $local_city;
+
 /**
 * Establece las propiedades un objeto de la clase StarBucks
 *
@@ -109,6 +115,10 @@ class StarBucks
 		if(array_key_exists('local_country', $hash))
 		{
 			$this->local_country = (string) $hash['local_country'];
+		}
+		if(array_key_exists('local_city', $hash))
+		{
+			$this->local_city = (string) $hash['local_city'];
 		}
 	}
 
@@ -356,7 +366,7 @@ class StarBucks
 
 	public function __toString()
 	{
-		return $this->local_name()." (".(string) $this->local_id().") \n".$this->local_address()." [".(string) $this->local_country()."] (".(string) $this->local_latitude().", ".(string) $this->local_longitude().")\n";
+		return $this->local_name()." (".(string) $this->local_id().") \n".$this->local_address()." [".(string) $this->local_city().' - '.(string) $this->local_country()."] (".(string) $this->local_latitude().", ".(string) $this->local_longitude().")\n";
 	}
 
 /**
@@ -395,10 +405,11 @@ class StarBucks
 		
 		//Ahora tengo que guardar en la base de datos
 		//Preparo la consulta y la ejecuto, aprovecho los métodos creados dinámicamente para obtener los valos de cada atributo.
-		$sql = "INSERT INTO `starbucks` ( `local_id`, `local_name`, `local_address`, `local_country`, `local_latitude`, `local_longitude`) VALUES (";
+		$sql = "INSERT INTO `starbucks` ( `local_id`, `local_name`, `local_address`, `local_city`, `local_country`, `local_latitude`, `local_longitude`) VALUES (";
 		$sql .= "".$this->local_id().", ";
 		$sql .= "'".$this->escape_string($this->local_name())."', ";
 		$sql .= "'".$this->escape_string($this->local_address())."', ";
+		$sql .= "'".$this->escape_string($this->local_city())."', ";
 		$sql .= "'".$this->escape_string($this->local_country())."', ";
 		$sql .= "".$this->local_latitude().", ";
 		$sql .= "".$this->local_longitude()."";
@@ -446,6 +457,7 @@ class StarBucks
 		$sql .= "`local_id` = ".$this->local_id().", ";
 		$sql .= "`local_name` = '".$this->escape_string($this->local_name())."', ";
 		$sql .= "`local_address` = '".$this->escape_string($this->local_address())."', ";
+		$sql .= "`local_city` = '".$this->escape_string($this->local_city())."', ";
 		$sql .= "`local_country` = '".$this->escape_string($this->local_country())."', ";
 		$sql .= "`local_latitude` = ".$this->local_latitude().", ";
 		$sql .= "`local_longitude` = ".$this->local_longitude()." ";
@@ -538,6 +550,7 @@ class StarBucks
 			$this->local_latitude = null;
 			$this->local_longitude = null;
 			$this->local_country = null;
+			$this->local_city = null;
 			return true;
 		}
 		//Construyo la SQL y la ejecuto contra la DB
@@ -558,6 +571,7 @@ class StarBucks
 			$this->local_latitude = null;
 			$this->local_longitude = null;
 			$this->local_country = null;
+			$this->local_city = null;
 			return true;
 		}
 
@@ -721,6 +735,48 @@ class StarBucks
 		$where = $campo." = '".$valor."'";
 		return self::where($where, $limit, $order, $order_mod);
 	}
+
+
+	public static function nearest_places($latitud, $longitud, $registros = 10, $country_code = null)
+	{
+		$resultados = new StarBucksCollection(); //El resultado se devuelve como una colección de objetos de tipo StarBucks
+		
+		$latitud = (double) trim($latitud);
+		$longitud = (double) trim($longitud);
+		
+		$sql = "SELECT id, (((acos(sin(($latitud*pi()/180)) * sin((`local_latitude`*pi()/180))+cos(($latitud*pi()/180)) * cos((`local_latitude`*pi()/180)) * cos((($longitud- `local_longitude`)*pi()/180))))*180/pi())*60*1.1515*1.609344) as distance FROM `starbucks` ";
+		$sql .= " ORDER BY distance LIMIT $registros ;";
+		//echo $sql;
+		$res = self::static_make_db_query($sql);
+		
+		if(!$res)
+		{
+			throw new Exception("Error Processing Request", 1);
+			return false;
+			
+		}
+
+		if(get_class($res) == 'mysqli_result')
+		{
+			while ($fila = $res->fetch_assoc()) {
+				$resultados->add($fila['id']);
+			}
+		}
+		else
+		{
+			while ($fila = mysql_fetch_assoc($res))
+			{
+				$resultados->add($fila['id']);
+			}
+		}
+		//Devuelvo los resultados, un objeto de tipo StarBucksCollection
+		return $resultados;
+
+	}
+
+
+
+
 
 /**
 * Calcula la distancia (formula de Haversin) entre el local StarBucks y las coordenadas proporcionadas

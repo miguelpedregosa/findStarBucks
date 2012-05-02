@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 30-04-2012 a las 12:33:04
+-- Tiempo de generación: 01-05-2012 a las 18:25:56
 -- Versión del servidor: 5.5.22
 -- Versión de PHP: 5.3.10-1ubuntu3
 
@@ -30,12 +30,13 @@ CREATE TABLE IF NOT EXISTS `starbucks` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `local_id` int(11) NOT NULL,
   `local_name` varchar(255) NOT NULL,
-  `local_address` text NOT NULL,
-  `local_country` text NOT NULL,
-  `local_latitude` double NOT NULL,
-  `local_longitude` double NOT NULL,
+  `local_address` text,
+  `local_city` varchar(255) DEFAULT NULL,
+  `local_country` text,
+  `local_latitude` double DEFAULT NULL,
+  `local_longitude` double DEFAULT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=18617 ;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;

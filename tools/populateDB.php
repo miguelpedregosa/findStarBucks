@@ -1,4 +1,5 @@
 <?php
+$tiempo_inicio = time();
 require_once '../classes/StarBucks.php';
 require_once 'simplehtmldom/simple_html_dom.php';
 
@@ -30,6 +31,33 @@ function starbucks_crawler($local_id)
 			return true;
 		}
 
+		if(strstr($local_name, "Dead"))
+		{
+			return true;
+		}
+
+		if(strstr($local_name, "dead"))
+		{
+			return true;
+		}
+
+		if(strstr(strtoupper($local_name), "DO NOT USE"))
+		{
+			return true;
+		}
+
+		if(strstr(strtoupper($local_name), "DEAD"))
+		{
+			return true;
+		}
+
+
+		if(strstr(strtoupper($local_name), "CLOSED"))
+		{
+			return true;
+		}
+
+
 		$data = $html->find(".street-address", 0);
 		$street_address = trim(strip_tags($data));
 
@@ -48,6 +76,7 @@ function starbucks_crawler($local_id)
 		$data = $html->find(".country-name", 0);
 		$country_name = trim(strip_tags($data));
 		$local_country = $country_name;
+		$local_city = $locality;
 		$local_address = $street_address." ".$extended_address." ".$locality." ".$region." ".$postal_code." ".$country_name;
 
 		echo "\nDatos obtenidos\n";
@@ -86,6 +115,7 @@ function starbucks_crawler($local_id)
 		$st->local_id($local_id);
 		$st->local_name($local_name);
 		$st->local_address($local_address);
+		$st->local_city($local_city);
 		$st->local_country($local_country);
 		$st->local_latitude($local_latitude);
 		$st->local_longitude($local_longitude);
@@ -122,13 +152,13 @@ else
 {
 	$registro_final = 20000;
 }
-
-	
+//echo ($registro_final - $registro_inicial); die;
+$completado = 0;	
 //Vamos a por los 200 primeros a ver que tal se porta o si peta
 for ($i = $registro_inicial; $i<$registro_final; $i++)
 {
-	$porcentaje = ceil(($i / ($registro_final - $registro_inicial)) * 100);
-	echo "=== Trabajo ".$i." de ".($registro_final - $registro_inicial)." (".$porcentaje."%) ===\n\n\n";
+	$porcentaje = ceil(($completado / ($registro_final - $registro_inicial)) * 100);
+	echo "=== Trabajo ".(string) ($completado + 1)." de ".($registro_final - $registro_inicial)." (".$porcentaje."%) ===\n\n\n";
 	if(starbucks_crawler($i))
 	{
 		echo "\nSiguiente registro\n";
@@ -149,7 +179,24 @@ for ($i = $registro_inicial; $i<$registro_final; $i++)
 		sleep(2);		
 
 	}
+	$completado++;
 }	
 
 echo "\nErrores encontrados: ".$errores."\n";
-print_r($errores_values);
+echo "Intentado recuperar información\n";
+//print_r($errores_values);
+foreach ($errores_values as $error_id) 
+{
+	starbucks_crawler($error_id);
+	sleep(5);
+}
+$tiempo_fin = time();
+
+$duration = $tiempo_fin-$tiempo_inicio;
+$hours = (int)($duration/60/60);
+$minutes = (int)($duration/60)-$hours*60;
+$seconds = (int)$duration-$hours*60*60-$minutes*60;
+
+//$empleado_t =  date("H:i:s",($tiempo_fin-$tiempo_inicio));
+$empleado_t = $hours." horas, ".$minutes." minutos y ".$seconds." segundos.";
+echo "\n\n\nFin del trabajo. Tiempo empleado: ".$empleado_t."\n";
